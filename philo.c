@@ -6,7 +6,7 @@
 /*   By: roruiz-v <roruiz-v@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 09:07:00 by roruiz-v          #+#    #+#             */
-/*   Updated: 2023/09/14 20:50:49 by roruiz-v         ###   ########.fr       */
+/*   Updated: 2023/09/16 17:58:09 by roruiz-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,18 @@ static void	ft_default_data_init(t_bag *data)
 	data->error = NO_ERROR;
 }
 
+/**
+ * @brief 
+ * 				atexit(ft_leaks);
+ * @param argc 
+ * @param argv 
+ * @return int 
+ */
 int	main(int argc, char **argv)
 {
 	t_bag	data;
 
-//	atexit(ft_leaks);
+	//atexit(ft_leaks);
 	ft_default_data_init(&data);
 	ft_check_data(&data, argc, argv);
 	ft_init_data(&data, argc, argv);

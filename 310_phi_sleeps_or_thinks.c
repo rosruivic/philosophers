@@ -6,7 +6,7 @@
 /*   By: roruiz-v <roruiz-v@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 13:07:11 by roruiz-v          #+#    #+#             */
-/*   Updated: 2023/09/15 19:42:28 by roruiz-v         ###   ########.fr       */
+/*   Updated: 2023/09/16 17:13:23 by roruiz-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ static void	ft_phi_prints_is_sleeping(t_philo *p)
 {
 	if (ft_phi_checks_end_status(p))
 		return ;
+	p->n_forks = 0;
 	if (pthread_mutex_lock(&p->orgn->lock_print) != 0)
 		ft_error_msg(ERROR_LOCK_PRINT_MUTEX, p->orgn);
 	printf("%s%ld %i %s\n", Y,

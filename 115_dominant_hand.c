@@ -6,7 +6,7 @@
 /*   By: roruiz-v <roruiz-v@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/08 17:11:07 by roruiz-v          #+#    #+#             */
-/*   Updated: 2023/09/15 18:32:50 by roruiz-v         ###   ########.fr       */
+/*   Updated: 2023/09/16 13:29:36 by roruiz-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,16 @@
 		return (0);
 } */
 
+/**
+ * @brief 
+ * 
+ * @param phi 
+ * @return int    [0] is right handed; [1] is left handed
+ */
 int	ft_dominant_hand(t_philo *phi)
 {
-	if (phi->id_phi % 2 == 0)
-		return (1);
-	else
+	if (phi->id_phi % 2 != 0)
 		return (0);
+	else
+		return (1);
 }

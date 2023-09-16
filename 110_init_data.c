@@ -6,11 +6,31 @@
 /*   By: roruiz-v <roruiz-v@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 13:04:42 by roruiz-v          #+#    #+#             */
-/*   Updated: 2023/09/15 18:25:55 by roruiz-v         ###   ########.fr       */
+/*   Updated: 2023/09/16 17:00:10 by roruiz-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
+
+static void	ft_init_main_struct(t_bag *data, int argc, char **argv)
+{
+	data->n_phi = ft_philo_atoi(argv[1]);
+	if (data->n_phi <= 0)
+		ft_error_msg(ERROR_INVALID_NUM_PHILOSOPHERS, data);
+	data->tm_to_die = ft_philo_atoi(argv[2]);
+	data->tm_to_eat = ft_philo_atoi(argv[3]);
+	data->tm_to_slp = ft_philo_atoi(argv[4]);
+	if (argc == 6)
+		data->n_tms_must_eat = ft_philo_atoi(argv[5]);
+	data->frk = malloc(data->n_phi * sizeof(t_fork));
+	if (!data->frk)
+		ft_error_msg(ERROR_FORKS_MALLOC, data);
+	data->phi = malloc(data->n_phi * sizeof(t_philo));
+	if (!data->phi)
+		ft_error_msg(ERROR_PHILOS_MALLOC, data);
+	pthread_mutex_init(&data->lock_error, NULL);
+	pthread_mutex_init(&data->lock_print, NULL);
+}
 
 static void	ft_init_forks(t_bag *data)
 {
@@ -53,41 +73,22 @@ static void	ft_init_philos(t_bag *data)
 	{
 		data->phi[i].thr_phi = NULL;
 		data->phi[i].id_phi = i + 1;
-//		data->phi[i].hand = ft_dominant_hand(void);
 		data->phi[i].hand = ft_dominant_hand(&data->phi[i]);
 		data->phi[i].tm_last_eat = data->s_tm;
 		if (data->n_tms_must_eat >= 0)
 			data->phi[i].n_tms_has_eaten = 0;
 		data->phi[i].n_forks = 0;
-		if (i == 0 && data->n_phi > 0)
-			data->phi[i].indx_l_fork = (data->n_phi - 1);
-		else
-			data->phi[i].indx_l_fork = i - 1;
-		if (i == data->n_phi - 1)
-			data->phi[i].indx_r_fork = 0;
-		else
-			data->phi[i].indx_r_fork = i + 1;
+		data->phi[i].indx_r_fork = i;
+		if (data->n_phi > 1)
+		{
+			if (i == 0)
+				data->phi[i].indx_l_fork = (data->n_phi - 1);
+			else
+				data->phi[i].indx_l_fork = i - 1;
+		}		
 		data->phi[i].orgn = data;
 		ft_init_phi_mutexes(data, i);
 	}
-}
-
-static void	ft_init_main_struct(t_bag *data, int argc, char **argv)
-{
-	data->n_phi = ft_philo_atoi(argv[1]);
-	data->tm_to_die = ft_philo_atoi(argv[2]);
-	data->tm_to_eat = ft_philo_atoi(argv[3]);
-	data->tm_to_slp = ft_philo_atoi(argv[4]);
-	if (argc == 6)
-		data->n_tms_must_eat = ft_philo_atoi(argv[5]);
-	data->frk = malloc(data->n_phi * sizeof(t_fork));
-	if (!data->frk)
-		ft_error_msg(ERROR_FORKS_MALLOC, data);
-	data->phi = malloc(data->n_phi * sizeof(t_philo));
-	if (!data->phi)
-		ft_error_msg(ERROR_PHILOS_MALLOC, data);
-	pthread_mutex_init(&data->lock_error, NULL);
-	pthread_mutex_init(&data->lock_print, NULL);
 }
 
 void	ft_init_data(t_bag *data, int argc, char **argv)

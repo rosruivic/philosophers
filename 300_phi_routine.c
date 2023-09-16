@@ -6,7 +6,7 @@
 /*   By: roruiz-v <roruiz-v@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 13:56:55 by roruiz-v          #+#    #+#             */
-/*   Updated: 2023/09/15 20:21:42 by roruiz-v         ###   ########.fr       */
+/*   Updated: 2023/09/16 17:40:37 by roruiz-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,16 @@ void	*ft_phi_routine(void *philo)
 	phi = (t_philo *)philo;
 	if (phi->hand)
 		usleep(200);
-	while (phi->orgn->error == NO_ERROR)
+	while (phi->orgn->error != END)
 	{
 		ft_phi_is_thinking(phi);
 		ft_phi_get_forks(phi);
+		if (phi->n_forks != 2)
+		{
+			while (ft_phi_checks_end_status(phi) == 0)
+				;
+			return (NULL);
+		}
 		ft_phi_is_eating(phi);
 		ft_phi_is_sleeping(phi);
 	}

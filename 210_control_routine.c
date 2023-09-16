@@ -6,7 +6,7 @@
 /*   By: roruiz-v <roruiz-v@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 14:22:28 by roruiz-v          #+#    #+#             */
-/*   Updated: 2023/09/15 20:20:39 by roruiz-v         ###   ########.fr       */
+/*   Updated: 2023/09/16 17:37:35 by roruiz-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,13 +84,12 @@ void	*ft_ctrl_routine(void *data)
 
 	d = (t_bag *)data;
 	ft_create_philos_threads(d);
-	if (d->n_phi < 3)
-		usleep((d->tm_to_die - 2) * 1000);
 	while (1)
 	{
 		if (d->phi[d->n_phi - 1].id_phi == d->n_phi)
 			break ;
 	}
+	usleep((d->tm_to_die - 1) * 1000);
 	while (1)
 	{
 		if (ft_check_all_has_eaten(d))

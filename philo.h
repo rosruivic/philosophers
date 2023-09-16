@@ -6,7 +6,7 @@
 /*   By: roruiz-v <roruiz-v@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 09:22:41 by roruiz-v          #+#    #+#             */
-/*   Updated: 2023/09/15 19:32:18 by roruiz-v         ###   ########.fr       */
+/*   Updated: 2023/09/16 16:59:56 by roruiz-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ typedef enum e_error_msg
 	NO_ERROR,
 	ERROR_INVALID_NUM_ARGMTS,
 	ERROR_INVALID_TYPE_ARGMTS,
+	ERROR_INVALID_NUM_PHILOSOPHERS,
 	ERROR_FORKS_MALLOC = 10,
 	ERROR_PHILOS_MALLOC,
 	ERROR_INIT_FORK_MUTEX = 20,
