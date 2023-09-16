@@ -6,7 +6,7 @@
 /*   By: roruiz-v <roruiz-v@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 12:36:43 by roruiz-v          #+#    #+#             */
-/*   Updated: 2023/09/05 15:37:22 by roruiz-v         ###   ########.fr       */
+/*   Updated: 2023/09/16 19:27:08 by roruiz-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,11 @@ static void	ft_check_is_digit_argmts(t_bag *data, char **argv)
 		while (argv[i][++j])
 		{
 			if (ft_is_digit(argv[i][j]) == 0)
-			{
 				ft_error_msg(ERROR_INVALID_TYPE_ARGMTS, data);
-				return ;
-			}
 		}
+		if (ft_philo_atoi(argv[i]) <= INT_MIN
+			|| ft_philo_atoi(argv[i]) >= INT_MAX)
+			ft_error_msg(ERROR_OVERLIMITS, data);
 	}
 }
 

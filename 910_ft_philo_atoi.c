@@ -6,7 +6,7 @@
 /*   By: roruiz-v <roruiz-v@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 13:02:20 by roruiz-v          #+#    #+#             */
-/*   Updated: 2023/09/05 19:21:51 by roruiz-v         ###   ########.fr       */
+/*   Updated: 2023/09/16 19:26:03 by roruiz-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,11 @@
 
 #include "philo.h"
 
-int	ft_philo_atoi(const char *str)
+long	ft_philo_atoi(const char *str)
 {
-	int	i;
-	int	nb;
-	int	sg;
+	long	i;
+	long	nb;
+	long	sg;
 
 	i = -1;
 	nb = 0;

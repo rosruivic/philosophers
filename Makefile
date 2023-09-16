@@ -6,7 +6,7 @@
 #    By: roruiz-v <roruiz-v@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/27 10:18:14 by roruiz-v          #+#    #+#              #
-#    Updated: 2023/09/16 17:54:12 by roruiz-v         ###   ########.fr        #
+#    Updated: 2023/09/16 19:02:32 by roruiz-v         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,7 +40,7 @@ OFILES = $(addprefix obj/, $(OBJS))
 
 CC		= gcc
 
-FLAGS	= -pthread -Wall -Werror -Wextra #-fsanitize=thread #-g #-fsanitize=address
+FLAGS	= -pthread -Wall -Werror -Wextra -fsanitize=thread #-g #-fsanitize=address
 
 #LEAKS = memory-leaks/memory_leaks.a
 

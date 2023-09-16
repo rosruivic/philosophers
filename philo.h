@@ -6,7 +6,7 @@
 /*   By: roruiz-v <roruiz-v@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 09:22:41 by roruiz-v          #+#    #+#             */
-/*   Updated: 2023/09/16 16:59:56 by roruiz-v         ###   ########.fr       */
+/*   Updated: 2023/09/16 19:27:31 by roruiz-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <unistd.h>
 # include <pthread.h>
 # include <sys/time.h>
+# include <limits.h>
 # define NC	"\e[0m"
 # define R 	"\e[31m"
 # define G 	"\e[32m"
@@ -35,6 +36,7 @@ typedef enum e_error_msg
 	ERROR_INVALID_NUM_ARGMTS,
 	ERROR_INVALID_TYPE_ARGMTS,
 	ERROR_INVALID_NUM_PHILOSOPHERS,
+	ERROR_OVERLIMITS,
 	ERROR_FORKS_MALLOC = 10,
 	ERROR_PHILOS_MALLOC,
 	ERROR_INIT_FORK_MUTEX = 20,
@@ -174,18 +176,6 @@ long	ft_gtod(void);
 void	ft_putstr_fd(char *s, int fd);
 int		ft_strlen(char *s);
 int		ft_is_digit(char var);
-int		ft_philo_atoi(const char *str);
-
-/* ***********************************************************************/
-/* ******************              BASURA            ******************* */
-/* ***********************************************************************/
-
-/* int		ft_ctrl_locks_phi_tm_last_eat_mutex(t_bag *d, int i);
-int		ft_ctrl_unlocks_phi_tm_last_eat_mutex(t_bag *d, int i);
-int		ft_ctrl_locks_phi_n_tms_has_eaten_mutex(t_bag *d, int i);
-int		ft_ctrl_unlocks_phi_n_tms_has_eaten_mutex(t_bag *d, int i); */
-
-/* int		ft_phi_locks_tm_last_eat_mutex(t_philo *p);
-int		ft_phi_unlocks_tm_last_eat_mutex(t_philo *p); */
+long	ft_philo_atoi(const char *str);
 
 #endif

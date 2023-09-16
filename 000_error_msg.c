@@ -6,7 +6,7 @@
 /*   By: roruiz-v <roruiz-v@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 09:40:48 by roruiz-v          #+#    #+#             */
-/*   Updated: 2023/09/16 17:02:49 by roruiz-v         ###   ########.fr       */
+/*   Updated: 2023/09/16 19:21:19 by roruiz-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,8 @@ void	ft_error_msg(t_error_msg error, t_bag *data)
 		ft_putstr_fd("Error\n --- Invalid number of arguments\n", 2);
 	else if (error == ERROR_INVALID_TYPE_ARGMTS)
 		ft_putstr_fd("Error\n --- Invalid arguments type\n", 2);
+	else if (error == ERROR_OVERLIMITS)
+		ft_putstr_fd("Error\n --- Some arguments over limits\n", 2);
 	else if (error == ERROR_INVALID_NUM_PHILOSOPHERS)
 		ft_putstr_fd("Error\n --- Invalid number of philosophers\n", 2);
 	else if (error == ERROR_FORKS_MALLOC)
